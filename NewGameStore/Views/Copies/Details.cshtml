@@ -1,0 +1,45 @@
+﻿@model IEnumerable<NewGameStore.Models.Copy>
+@{ 
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CopyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Game.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Available)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CopyID)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Available)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.CopyID}, new { @class = "btn btn-default" })  
+                @Html.ActionLink("Delete", "Delete", new { id = item.CopyID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</p>

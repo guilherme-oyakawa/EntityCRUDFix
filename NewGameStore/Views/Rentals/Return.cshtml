@@ -1,0 +1,81 @@
+﻿@model NewGameStore.Models.Rental
+
+@{
+    ViewBag.Title = "Return";
+}
+
+<h2>Rentals</h2>
+
+<h3>Return this item?</h3>
+<div>
+    <h4>Rental</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Copy.CopyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copy.CopyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LentOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LentOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price) + @Html.DisplayFor(model => model.RentalFee) = @Html.DisplayFor(model => model.TotalValue) 
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Return" class="btn btn-warning" /> 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

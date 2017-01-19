@@ -1,0 +1,39 @@
+﻿
+
+@model  IEnumerable<NewGameStore.ViewModels.CopiesPerGame>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Copies</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GameTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CopiesCount)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>  
+                @Html.DisplayFor(modelItem =>item.GameTitle)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CopiesCount)
+            </td>
+
+            <td>
+                @Html.ActionLink("Check Copies", "Details", new { id = item.GameTitle }, new { @class = "btn btn-info" })
+            </td>
+        </tr>
+    }
+</table>

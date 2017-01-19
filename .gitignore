@@ -1,0 +1,6 @@
+*.suo
+*.dll
+*.pdb
+*.csproj
+GameStore/bin/*
+GameStore/obj/*

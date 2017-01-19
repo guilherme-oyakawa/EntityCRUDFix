@@ -1,0 +1,72 @@
+﻿@model IEnumerable<NewGameStore.Models.Rental>
+
+@{
+    ViewBag.Title = "Rentals";
+}
+
+<h2>Rentals</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Log", "Log", null, new { @class = "btn btn-default" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.FullName)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Copy.Game.Title)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Copy.CopyID)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.LentOn)
+        </th>
+        <th>
+            @Html.ActionLink("Due date", "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PriceSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Copy.Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Copy.CopyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LentOn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RentalID }, new { @class = "btn btn-default" })
+            @Html.ActionLink("Return", "Return", new { id = item.RentalID }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.RentalID }, new { @class = "btn btn-danger" }) 
+            
+        </td>
+    </tr>
+}
+
+</table>
+<td>
+    @Html.ActionLink("Previous Page", "", new { page = ViewBag.CurrentPage - 1 }) |
+    @Html.ActionLink("Next Page", "", new { page = ViewBag.CurrentPage + 1 })
+</td>

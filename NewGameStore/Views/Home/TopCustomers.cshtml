@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NewGameStore.ViewModels.TopClients>
+
+@{
+    ViewBag.Title = "Top Customers";
+}
+
+<h2>Best Customers</h2>
+
+<table>
+    <tr>
+        <th>
+            Client
+        </th>
+        <th>
+            Total Spent
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Spent)
+            </td>
+        </tr>
+    }
+</table>

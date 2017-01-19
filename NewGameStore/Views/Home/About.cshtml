@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NewGameStore.ViewModels.TopRents>
+
+@{
+    ViewBag.Title = "Most Rented Games";
+}
+
+<h2>Most popular titles</h2>
+
+<table>
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Count
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RentCount)
+            </td>
+        </tr>
+    }
+</table>

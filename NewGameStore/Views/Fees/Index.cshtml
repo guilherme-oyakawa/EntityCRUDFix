@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NewGameStore.Models.Fee>
+
+@{
+    ViewBag.Title = "Fees";
+}
+
+<h2>Fees</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Log", "Log")
+</p>
+<table class="table">
+    <tr>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Rental.Client.FullName)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Rental.Copy.Game.Title) 
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rental.CopyID)
+        </th>
+        <th>
+            @Html.ActionLink("Value", "Index", new { sortOrder = ViewBag.PriceSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Rental.Client.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rental.Copy.Game.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rental.CopyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paid)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.FeeID }, new { @class = "btn btn-default" })  
+            @Html.ActionLink("Pay", "Pay", new { id=item.FeeID}, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.FeeID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<td>
+    @Html.ActionLink("Previous Page", "", new { page = ViewBag.CurrentPage - 1 }) |
+    @Html.ActionLink("Next Page", "", new { page = ViewBag.CurrentPage + 1 })
+</td>
