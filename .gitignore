@@ -3,6 +3,7 @@
 *.pdb
 *.csproj
 *.cache
+*.sln
 .vs/
 GameStore/bin/*
 GameStore/obj/*
