@@ -20,7 +20,9 @@ namespace NewGameStore.DAL.Repositories
         void DeleteRental(int RentalID);
         void UpdateRental(Rental Rental);
         IEnumerable<Copy> GetAvailableCopies();
-        IEnumerable<Client> GetClients();
+        //IEnumerable<Client> GetClients();
+        IEnumerable<Client> GetActiveClients();
+        
         IEnumerable<Copy> GetCopies();
         IEnumerable<TopClients> TopClients();
         void InsertFee(Fee Fee);

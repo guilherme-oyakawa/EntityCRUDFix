@@ -113,7 +113,7 @@ namespace NewGameStore.Controllers
         // GET: Rentals/Create
         public ActionResult Create()
         {
-            ViewBag.ClientID = new SelectList(rentalRepository.GetClients(), "ClientID", "FullName");
+            ViewBag.ClientID = new SelectList(rentalRepository.GetActiveClients(), "ClientID", "FullName");
             ViewBag.CopyID = new SelectList(rentalRepository.GetAvailableCopies(), "CopyID", "Details");
             return View();
         }
@@ -155,7 +155,7 @@ namespace NewGameStore.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClientID = new SelectList(rentalRepository.GetClients(), "ClientID", "FullName", rental.ClientID);
+            ViewBag.ClientID = new SelectList(rentalRepository.GetActiveClients(), "ClientID", "FullName", rental.ClientID);
             ViewBag.CopyID = new SelectList(rentalRepository.GetCopies(), "CopyID", "Details", rental.CopyID);
             return View(rental);
         }

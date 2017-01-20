@@ -184,7 +184,7 @@ namespace NewGameStore.Controllers
         {
             clientRepository.ActivateClient(id);
             clientRepository.Save();
-            return RedirectToAction("Index");
+            return RedirectToAction("Log");
         }
 
 

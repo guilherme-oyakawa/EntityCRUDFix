@@ -90,10 +90,17 @@ namespace NewGameStore.DAL.Repositories
                         select copy;
             return query.ToList();
         }
-
+        /*
         public IEnumerable<Client> GetClients()
         {
             return context.Clients.ToList();
+        }*/
+        public IEnumerable<Client> GetActiveClients()
+        {
+            var query = from c in context.Clients
+                        where c.Active == true
+                        select c;
+            return (query.ToList());
         }
 
         public IEnumerable<Copy> GetCopies()
