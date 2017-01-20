@@ -161,6 +161,33 @@ namespace NewGameStore.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: Clients/Activate/5
+        public ActionResult Activate(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Client client = clientRepository.GetClientByID(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+            return View(client);
+        }
+
+        // POST: Clients/Activate/5
+        [HttpPost, ActionName("Activate")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ActivateConfirmed(int id)
+        {
+            clientRepository.ActivateClient(id);
+            clientRepository.Save();
+            return RedirectToAction("Index");
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -5,7 +5,9 @@
 }
 
 <h2>Clients</h2>
-
+<p>
+    @Html.ActionLink("Active Clients", "Index", null, new { @class = "btn btn-default" })
+</p>
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
 {
     <p>
@@ -41,7 +43,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ClientID }, new { @class = "btn btn-default" })
-                @Html.ActionLink("Activate", "Delete", new { id = item.ClientID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Activate", "Activate", new { id = item.ClientID }, new { @class = "btn btn-success" })
             </td>
         </tr>
     }

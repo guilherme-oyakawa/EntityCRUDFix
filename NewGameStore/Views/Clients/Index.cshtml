@@ -8,6 +8,7 @@
 
 <p>
     @Html.ActionLink("Create New", "Create", null, new {@class = "btn btn-success" })
+    @Html.ActionLink("Inactive Clients", "Log", null, new { @class = "btn btn-default"})
 </p>
 @using (Html.BeginForm("Index", "Clients", FormMethod.Get))
 {
