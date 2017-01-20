@@ -131,7 +131,7 @@ namespace NewGameStore.Controllers
             return View(fee);
         }
 
-        // GET: Rentals/Paid/5
+        // GET: Rentals/Pay/5
         public ActionResult Pay(int? id)
         {
             if (id == null)
@@ -151,10 +151,11 @@ namespace NewGameStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ReturnConfirmed(int id)
         {
-            Fee fee = feeRepository.GetFeeByID(id);
-            fee.Paid = true;
-            feeRepository.UpdateFee(fee);
-            feeRepository.Save();
+            feeRepository.PayFee(id);
+            //Fee fee = feeRepository.GetFeeByID(id);
+            //fee.Paid = true;
+            //feeRepository.UpdateFee(fee);
+            //feeRepository.Save();
             return RedirectToAction("Index");
         }
 

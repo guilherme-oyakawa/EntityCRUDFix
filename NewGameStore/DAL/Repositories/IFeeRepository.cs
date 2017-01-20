@@ -17,6 +17,8 @@ namespace NewGameStore.DAL.Repositories
         void DeleteFee(int FeeID);
         void UpdateFee(Fee Fee);
 
+        void PayFee(int FeeID);
+
         IEnumerable<Rental> GetRentals();
         void Save();
     }

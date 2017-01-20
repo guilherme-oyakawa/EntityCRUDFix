@@ -9,11 +9,8 @@ namespace NewGameStore.ViewModels
 {
     public class TopClients
     {
-        public string Client { get; set; }
-
-        [DataType(DataType.Currency)]
-        [Column(TypeName = "money")]
-        [Display(Name ="Total Spent")]
-        public decimal Spent { get; set; }
+        public int id;
+        public string FullName;
+        public decimal total;
     }
 }

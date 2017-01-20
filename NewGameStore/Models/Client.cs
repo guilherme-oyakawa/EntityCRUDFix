@@ -1,14 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
+
 
 namespace NewGameStore.Models
 {
     public class Client
     {
+        public Client()
+        {
+            this.Active = true;
+        }
+
         [Key]
         public int ClientID { get; set; }
 
@@ -20,10 +28,13 @@ namespace NewGameStore.Models
         [StringLength(50)]
         [Display(Name ="Last Name")]
         public string LastName { get; set; }
-        //
+
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
+
+        [DefaultValue(true)]
+        public bool Active { get; set; }
 
         [Display(Name = "Full Name")]
         public string FullName

@@ -108,7 +108,14 @@ namespace NewGameStore.DAL.Repositories
 
         public IEnumerable<TopClients> TopClients()
         {
-            throw new NotImplementedException();
+            var top = context.Database.SqlQuery<TopClients>("exec TopCustomers").ToList<TopClients>();
+            return top;
+
+        }
+
+        public void ReturnCopy(int CopyID)
+        {
+            context.Database.ExecuteSqlCommand("EXEC ReturnCopy @copy = {0}", CopyID);
         }
     }
 }

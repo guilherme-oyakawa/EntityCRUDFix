@@ -56,3 +56,6 @@ c:\users\guilherme.masao\documents\visual studio 2015\Projects\NewGameStore\NewG
 c:\users\guilherme.masao\documents\visual studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.pdb
 c:\users\guilherme.masao\documents\visual studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.Migrations.InitialCreate.resources
 c:\users\guilherme.masao\documents\visual studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.csproj.GenerateResource.Cache
+C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.Migrations.ValidClient.resources
+C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.Migrations.StoredProcedures.resources
+C:\Users\guilherme.masao\Documents\Visual Studio 2015\Projects\NewGameStore\NewGameStore\obj\Debug\NewGameStore.Migrations.moreStoredProcedures.resources

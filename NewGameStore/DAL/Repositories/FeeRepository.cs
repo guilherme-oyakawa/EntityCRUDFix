@@ -68,6 +68,11 @@ namespace NewGameStore.DAL.Repositories
             return context.Rentals.ToList();
         }
 
+        public void PayFee(int FeeID)
+        {
+            context.Database.ExecuteSqlCommand("EXEC PayFee @Fee = {0}", FeeID);
+        }
+
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {

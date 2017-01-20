@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NewGameStore.Models;
 using System.Data.Entity;
+using System.Data.SqlClient;
 
 namespace NewGameStore.DAL.Repositories
 {
@@ -32,8 +33,10 @@ namespace NewGameStore.DAL.Repositories
 
         public void DeleteClient(int ClientID)
         {
-            Client Client = context.Clients.Find(ClientID);
-            context.Clients.Remove(Client);
+
+            context.Database.ExecuteSqlCommand("EXEC DeactivateClient @Client = {0}", ClientID);
+            //Client Client = context.Clients.Find(ClientID);
+            //context.Clients.Remove(Client);
         }
 
         public void UpdateClient(Client Client)

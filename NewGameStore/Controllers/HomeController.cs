@@ -36,7 +36,7 @@ namespace NewGameStore.Controllers
 
         public ActionResult TopCustomers()
         {
-            return View(rentalRepository.TopClients().OrderByDescending(c=> c.Spent).ToList());
+            return View(rentalRepository.TopClients().OrderByDescending(c=> c.total));
         }
 
         public ActionResult Contact()

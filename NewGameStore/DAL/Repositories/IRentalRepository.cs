@@ -24,6 +24,7 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<Copy> GetCopies();
         IEnumerable<TopClients> TopClients();
         void InsertFee(Fee Fee);
+        void ReturnCopy(int CopyID);
         void Save();
     }
 }

@@ -233,7 +233,9 @@ namespace NewGameStore.Controllers
         {
             Rental rental = rentalRepository.GetRentalByID(id);
             DateTime ret = DateTime.Now;
-            rental.Copy.Available = true;
+
+            rentalRepository.ReturnCopy(id);
+            //rental.Copy.Available = true;
             rental.ReturnedOn = ret;
             Fee fee = new Fee
             {
