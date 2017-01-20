@@ -28,6 +28,11 @@ namespace NewGameStore.Controllers
             return View(pubRepository.GetPublishers());
         }
 
+        public ActionResult GamesPerPublisher(string publisher)
+        {
+            return View();
+        }
+
         // GET: Publishers/Create
         public ActionResult Create()
         {

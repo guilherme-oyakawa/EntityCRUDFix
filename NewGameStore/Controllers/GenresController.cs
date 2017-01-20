@@ -27,6 +27,12 @@ namespace NewGameStore.Controllers
             return View(genreRepository.GetGenres());
         }
 
+        public ActionResult GamesPerGenre(string genre)
+        {
+            ViewBag.Genre = genre;
+            return View();
+        }
+
         // GET: Genres/Create
         public ActionResult Create()
         {

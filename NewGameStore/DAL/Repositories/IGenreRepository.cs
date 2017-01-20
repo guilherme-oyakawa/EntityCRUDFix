@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NewGameStore.ViewModels;
 
 namespace NewGameStore.DAL.Repositories
 {
@@ -20,6 +21,7 @@ namespace NewGameStore.DAL.Repositories
         void UpdateGenre(Genre Genre);
 
         bool genreExists(Genre Genre);
+
         void Save();
     }
 }

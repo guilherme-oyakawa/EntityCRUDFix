@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using NewGameStore.Models;
 using System.Data.Entity;
+using NewGameStore.ViewModels;
 
 namespace NewGameStore.DAL.Repositories
 {
@@ -51,6 +52,7 @@ namespace NewGameStore.DAL.Repositories
             return (exists != null) ? true : false;
         }
 
+
         public void Save()
         {
             context.SaveChanges();
@@ -74,5 +76,6 @@ namespace NewGameStore.DAL.Repositories
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
     }
 }

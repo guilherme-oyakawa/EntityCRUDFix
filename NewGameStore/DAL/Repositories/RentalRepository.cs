@@ -115,9 +115,7 @@ namespace NewGameStore.DAL.Repositories
 
         public IEnumerable<TopClients> TopClients()
         {
-            //var query = from 
-            return null;
-
+           return null;
         }
 
         public void ReturnCopy(int CopyID)
