@@ -108,8 +108,7 @@ namespace NewGameStore.DAL.Repositories
 
         public IEnumerable<TopClients> TopClients()
         {
-            var top = context.Database.SqlQuery<TopClients>("exec TopCustomers").ToList<TopClients>();
-            return top;
+            return null;
 
         }
 

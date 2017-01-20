@@ -31,7 +31,7 @@ namespace NewGameStore.Controllers
         {
             int pageSize = 4;
             int pageNumber = (page ?? 0);
-            var clients = clientRepository.GetClients();
+            var clients = clientRepository.GetActiveClients();
             int maxPage = clients.Count() / pageSize;
 
             if (page <= 0) pageNumber = 0;
@@ -45,6 +45,26 @@ namespace NewGameStore.Controllers
             clients = clients.OrderBy(c => c.LastName);
             return View(clients.Skip(pageSize * (pageNumber)).Take(pageSize).ToList());
         }
+
+        public ActionResult Log(string searchString, int? page)
+        {
+            int pageSize = 4;
+            int pageNumber = (page ?? 0);
+            var clients = clientRepository.GetInactiveClients();
+            int maxPage = clients.Count() / pageSize;
+
+            if (page <= 0) pageNumber = 0;
+            if (page >= maxPage) pageNumber = maxPage;
+
+            ViewBag.CurrentPage = pageNumber;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clients = clients.Where(c => c.FullName.ToUpper().Contains(searchString.ToUpper()));
+            }
+            clients = clients.OrderBy(c => c.LastName);
+            return View(clients.Skip(pageSize * (pageNumber)).Take(pageSize).ToList());
+        }
+
 
         // GET: Clients/Details/5
         public ActionResult Details(int? id)

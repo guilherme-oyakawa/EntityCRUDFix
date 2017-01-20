@@ -21,7 +21,23 @@ namespace NewGameStore.DAL.Repositories
             return context.Clients.ToList();
         }
 
-        public Client GetClientByID(int? ClientID)
+        public IEnumerable<Client> GetActiveClients()
+        {
+            var query = from c in context.Clients
+                        where c.Active == true
+                        select c;
+            return (query.ToList());
+        }
+
+        public IEnumerable<Client> GetInactiveClients()
+        {
+            var query = from c in context.Clients
+                        where c.Active == false
+                        select c;
+            return (query.ToList());
+        }
+
+    public Client GetClientByID(int? ClientID)
         {
             return context.Clients.Find(ClientID);
         }
@@ -38,6 +54,15 @@ namespace NewGameStore.DAL.Repositories
             //Client Client = context.Clients.Find(ClientID);
             //context.Clients.Remove(Client);
         }
+
+        public void ActivateClient(int ClientID)
+        {
+
+            context.Database.ExecuteSqlCommand("EXEC ActivateClient @Client = {0}", ClientID);
+            //Client Client = context.Clients.Find(ClientID);
+            //context.Clients.Remove(Client);
+        }
+
 
         public void UpdateClient(Client Client)
         {
