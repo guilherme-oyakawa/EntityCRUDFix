@@ -19,18 +19,16 @@ namespace NewGameStore.Migrations
 
         protected override void Seed(NewGameStore.DAL.StoreContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            /*
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            var clients = new List<Client>
+            {
+                new Client {FirstMidName = "Adam", LastName = "Jensen", BirthDate = DateTime.Parse("01-01-1993")},
+                new Client {FirstMidName = "Frank", LastName = "Pritchard", BirthDate = DateTime.Parse("01-01-1993")}
+            };
+            clients.ForEach(c => context.Clients.Add(c));
+            context.SaveChanges();
+
             var ratings = new List<ESRB>
             {
                 new ESRB {Rating = "RP", Description = "Rating Pending", Age = 0},
@@ -42,6 +40,48 @@ namespace NewGameStore.Migrations
             };
             ratings.ForEach(r => context.Ratings.AddOrUpdate(r));
             context.SaveChanges();
+
+            var genres = new List<Genre>
+            {
+                new Genre {Name = "FPS" },
+                new Genre {Name = "Fighting" },
+                new Genre {Name = "Racing" }
+            };
+            genres.ForEach(g => context.Genres.AddOrUpdate(g));
+            context.SaveChanges();
+
+            var publishers = new List<Publisher>
+            {
+                new Publisher {Name = "Nintendo" },
+                new Publisher {Name = "Sega" },
+                new Publisher {Name = "Electronic Arts" },
+                new Publisher {Name = "Namco" },
+            };
+            publishers.ForEach(p => context.Publishers.AddOrUpdate(p));
+            context.SaveChanges();
+
+            var games = new List<Game>
+            {
+                new Game {Title="TEKKEN 7", ESRBID = 4, Description = "GotY 2017", Year = DateTime.Parse("03-01-2017"), Value = 59, PublisherID=4},
+                new Game {Title="Battlefield 1", ESRBID = 5, Description = "", Year = DateTime.Parse("03-01-2016"), Value = 59, PublisherID=3}
+            };
+            games.ForEach(g => context.Genres.AddOrUpdate(g));
+            context.SaveChanges();
+
+            var copies = new List<Copy>
+            {
+                new Copy {GameID = 1},
+                new Copy {GameID = 1},
+                new Copy {GameID = 1},
+                new Copy {GameID = 2},
+                new Copy {GameID = 2},
+                new Copy {GameID = 2},
+                new Copy {GameID = 2},
+                new Copy {GameID = 2}
+            };
+            copies.ForEach(c => context.Copies.Add(c));
+            context.SaveChanges();
+            */
         }
     }
 }

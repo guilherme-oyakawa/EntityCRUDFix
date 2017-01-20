@@ -9,7 +9,8 @@ namespace NewGameStore.ViewModels
 {
     public class TopClients
     {
-        public string FullName;
-        public decimal total;
+        public int ID { get; set; }
+        public string FullName { get; set; }
+        public decimal total { get; set; }
     }
 }
