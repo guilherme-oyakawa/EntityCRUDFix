@@ -2,5 +2,7 @@
 *.dll
 *.pdb
 *.csproj
+*.cache
+.vs/
 GameStore/bin/*
 GameStore/obj/*
