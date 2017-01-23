@@ -67,12 +67,16 @@ namespace NewGameStore.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CopyID,GameID,Available")] Copy copy, int? qty)
+        public ActionResult Create([Bind(Include = "GameID,Available")] Copy copy, int? qty)
         {
             if (ModelState.IsValid)
             {
-                copyRepository.InsertCopy(copy);
-                copyRepository.Save();
+                if (qty == null) qty = 1;
+                for (int i = 0; i < qty; i++)
+                {
+                    copyRepository.InsertCopy(copy);
+                    copyRepository.Save();
+                }
                 return RedirectToAction("Index");
             }
 
