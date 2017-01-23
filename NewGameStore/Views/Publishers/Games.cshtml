@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NewGameStore.Models.Game>
+
+@{
+    ViewBag.Title = "GamesPerPublisher";
+}
+
+<h2>Games published by @Html.Raw(ViewBag.Publisher)</h2>
+<p>
+    @Html.ActionLink("Back to Publishers", "Index", null, new { @class = ("btn btn-default") })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+
+            <td></td>
+        </tr>
+    }
+
+</table>
