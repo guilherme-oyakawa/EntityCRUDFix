@@ -49,7 +49,7 @@
             @Html.DisplayFor(modelItem=> item.Age)
         </td>
         <td>
-            @Html.ActionLink("Suitable Games", "GamesPerAge", new { id=item.ClientID}, new { @class = "btn btn-info"})
+            @Html.ActionLink("Suitable Games", "GamesPerAge", new { id=item.ClientID}, new { @class = "btn btn-default"})
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientID }, new { @class = "btn btn-default" }) 
             @Html.ActionLink("Deactivate", "Delete", new { id=item.ClientID }, new { @class = "btn btn-danger" })
         </td>
