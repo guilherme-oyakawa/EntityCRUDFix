@@ -21,13 +21,20 @@ namespace NewGameStore.Controllers
         }
        
         // GET: Rentals
-        public ActionResult Index(string sortOrder, int? page)
+        public ActionResult Index(string sortOrder, int? page, int? ClientID)
         {
+            ViewBag.ClientID = new SelectList(rentalRepository.GetClientsWithRentals(), "ClientID", "FullName");
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             int pageSize = 4;
             int pageNumber = (page ?? 0);
-            var rentals = rentalRepository.GetCurrentRentals();
+
+            IEnumerable<Rental> rentals;
+            if (ClientID == null)
+                rentals = rentalRepository.GetCurrentRentals();
+            else
+                rentals = rentalRepository.GetRentalsPerClient(ClientID);
+
             int maxPage = rentals.Count() / pageSize;
 
             switch (sortOrder)

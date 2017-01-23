@@ -15,6 +15,10 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<Rental> GetReturnedRentals();
         IEnumerable<Rental> GetCurrentRentals();
 
+        IEnumerable<Client> GetClientsWithRentals();
+
+        IEnumerable<Rental> GetRentalsPerClient(int? id);
+
         Rental GetRentalByID(int? RentalID);
         void InsertRental(Rental Rental);
         void DeleteRental(int RentalID);

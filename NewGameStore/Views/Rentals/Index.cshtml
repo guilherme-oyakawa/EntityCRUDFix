@@ -10,6 +10,15 @@
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
     @Html.ActionLink("Log", "Log", null, new { @class = "btn btn-default" })
 </p>
+
+@using (Html.BeginForm("Index", "Rentals", FormMethod.Get))
+{
+    <p>
+        Search Rentals per client: @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control"})
+        <input type="submit" value="Search" class="btn btn-info"/>
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -33,7 +42,9 @@
         <th>
             @Html.ActionLink("Price", "Index", new { sortOrder = ViewBag.PriceSortParm })
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnedOn)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -55,6 +66,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnedOn)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RentalID }, new { @class = "btn btn-default" })

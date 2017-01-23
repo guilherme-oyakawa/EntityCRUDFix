@@ -37,6 +37,22 @@ namespace NewGameStore.DAL.Repositories
 
         }
 
+        public IEnumerable<Fee> GetFeesPerClient(int? id)
+        {
+            var fees = from fee in context.Fees
+                       where fee.Rental.ClientID == id
+                       select fee;
+            return fees.ToList();
+        }
+
+        public IEnumerable<Client> GetClientsWithFees()
+        {
+            var clients = from f in context.Fees
+                          group f by f.Rental.Client into c
+                          select c.Key;
+            return clients.ToList();
+        }
+
         public Fee GetFeeByID(int? FeeID)
         {
             return context.Fees.Find(FeeID);

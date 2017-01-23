@@ -10,6 +10,15 @@
     @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" }) 
     @Html.ActionLink("Log", "Log", null, new { @class = "btn btn-default" })
 </p>
+
+@using (Html.BeginForm("Index", "Fees", FormMethod.Get))
+{
+    <p>
+        Search Fees per client: @Html.DropDownList("ClientID", null, htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Search" class="btn btn-info" />
+    </p>
+}
+
 <table class="table">
     <tr>
         

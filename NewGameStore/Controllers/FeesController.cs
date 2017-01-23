@@ -20,13 +20,19 @@ namespace NewGameStore.Controllers
             this.feeRepository = new FeeRepository(new StoreContext());
         }
         // GET: Fees
-        public ActionResult Index(string sortOrder, int? page)
+        public ActionResult Index(string sortOrder, int? page, int? ClientID)
         {
+            ViewBag.ClientID = new SelectList(feeRepository.GetClientsWithFees(), "ClientID", "FullName");
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
             int pageSize = 4;
             int pageNumber = (page ?? 0);
 
-            var fees = feeRepository.GetCurrentFees();
+            IEnumerable<Fee> fees;
+            if (ClientID == null)
+                fees = feeRepository.GetCurrentFees();
+            else
+                fees = feeRepository.GetFeesPerClient(ClientID);
+            
             int maxPage = fees.Count() / pageSize;
 
             switch (sortOrder)

@@ -12,6 +12,11 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<Fee> GetFees();
         IEnumerable<Fee> GetCurrentFees();
         IEnumerable<Fee> GetPaidFees();
+
+        IEnumerable<Fee> GetFeesPerClient(int? id);
+
+        IEnumerable<Client> GetClientsWithFees();
+
         Fee GetFeeByID(int? FeeID);
         void InsertFee(Fee Fee);
         void DeleteFee(int FeeID);

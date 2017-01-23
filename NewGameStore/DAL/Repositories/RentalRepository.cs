@@ -36,6 +36,22 @@ namespace NewGameStore.DAL.Repositories
             return (rentals.ToList());
         }
 
+        public IEnumerable<Rental> GetRentalsPerClient(int? id)
+        {
+            var rentals = from rental in context.Rentals
+                          where rental.ClientID == id
+                          select rental;
+            return rentals.ToList();
+        }
+
+        public IEnumerable<Client> GetClientsWithRentals()
+        {
+            var clients = from r in context.Rentals
+                          group r by r.Client into s
+                          select s.Key;
+            return clients.ToList();
+        }
+
         public Rental GetRentalByID(int? RentalID)
         {
             return context.Rentals.Find(RentalID);
