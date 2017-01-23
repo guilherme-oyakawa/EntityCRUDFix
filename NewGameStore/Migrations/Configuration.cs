@@ -62,8 +62,8 @@ namespace NewGameStore.Migrations
 
             var games = new List<Game>
             {
-                new Game {GameID = 1, Title="TEKKEN 7", ESRBID = 4, Description = "GotY 2017", Year = DateTime.Parse("03-01-2017"), Value = 59, PublisherID=4},
-                new Game {GameID = 2, Title="Battlefield 1", ESRBID = 5, Description = "", Year = DateTime.Parse("03-01-2016"), Value = 59, PublisherID=3}
+                new Game {GameID = 1, Title="TEKKEN 7", ESRBID = 4, Description = "GotY 2017", Year = DateTime.Parse("03-01-2017"), Value = 59, PublisherID=4, GenreID = 2},
+                new Game {GameID = 2, Title="Battlefield 1", ESRBID = 5, Description = "", Year = DateTime.Parse("03-01-2016"), Value = 59, PublisherID=3, GenreID = 1}
             };
             games.ForEach(g => context.Genres.AddOrUpdate(g));
             context.SaveChanges();

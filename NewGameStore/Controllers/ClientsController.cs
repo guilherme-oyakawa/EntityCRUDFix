@@ -43,7 +43,7 @@ namespace NewGameStore.Controllers
                 clients = clients.Where(c => c.FullName.ToUpper().Contains(searchString.ToUpper()));
             }
             clients = clients.OrderBy(c => c.LastName);
-            return View(clients.Skip(pageSize * (pageNumber)).Take(pageSize).ToList());
+            return View(clients.Skip(pageSize * (pageNumber)).Take(pageSize).OrderBy(c=> c.FirstMidName).ToList());
         }
 
         public ActionResult GamesPerAge(int id)
@@ -112,7 +112,6 @@ namespace NewGameStore.Controllers
 
             return View(client);
         }
-
         // GET: Clients/Edit/5
         public ActionResult Edit(int? id)
         {
