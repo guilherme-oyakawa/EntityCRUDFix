@@ -1,0 +1,34 @@
+﻿@model IEnumerable<NewGameStore.Models.Game>
+
+@{ 
+    ViewBag.Title = "AppropriateGames";
+}
+
+<h2>Suitable games for @Html.Raw(ViewBag.Name) (Age: @Html.Raw(ViewBag.Age))</h2>
+<p>
+    @Html.ActionLink("Back to Clients", "Index", null, new { @class = ("btn btn-default")})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Title
+        </th>
+        <th>
+            Rating
+        </th>
+    </tr>
+
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ESRB.Rating)
+            </td>
+        </tr>
+    }
+
+</table>

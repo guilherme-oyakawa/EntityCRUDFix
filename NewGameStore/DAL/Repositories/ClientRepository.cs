@@ -4,6 +4,7 @@ using System.Linq;
 using NewGameStore.Models;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using NewGameStore.ViewModels;
 
 namespace NewGameStore.DAL.Repositories
 {
@@ -35,6 +36,14 @@ namespace NewGameStore.DAL.Repositories
                         where c.Active == false
                         select c;
             return (query.ToList());
+        }
+
+        public IEnumerable<Game> AvailableGames(int age)
+        {
+            var games = from g in context.Games
+                        where g.ESRB.Age <= age
+                        select g;
+            return games.ToList();
         }
 
     public Client GetClientByID(int? ClientID)

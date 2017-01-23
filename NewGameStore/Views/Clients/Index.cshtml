@@ -28,6 +28,9 @@
         <th>
             @Html.DisplayNameFor(model => model.BirthDate)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
         <th></th>
     </tr>
 
@@ -43,6 +46,10 @@
             @Html.DisplayFor(modelItem => item.BirthDate)
         </td>
         <td>
+            @Html.DisplayFor(modelItem=> item.Age)
+        </td>
+        <td>
+            @Html.ActionLink("Suitable Games", "GamesPerAge", new { id=item.ClientID}, new { @class = "btn btn-info"})
             @Html.ActionLink("Edit", "Edit", new { id=item.ClientID }, new { @class = "btn btn-default" }) 
             @Html.ActionLink("Deactivate", "Delete", new { id=item.ClientID }, new { @class = "btn btn-danger" })
         </td>

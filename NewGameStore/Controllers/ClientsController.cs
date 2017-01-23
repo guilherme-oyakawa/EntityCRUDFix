@@ -46,6 +46,15 @@ namespace NewGameStore.Controllers
             return View(clients.Skip(pageSize * (pageNumber)).Take(pageSize).ToList());
         }
 
+        public ActionResult GamesPerAge(int id)
+        {
+            Client client = clientRepository.GetClientByID(id);
+            ViewBag.Name = client.FullName;
+            ViewBag.Age = client.Age;
+            IEnumerable<Game> list = clientRepository.AvailableGames(client.Age);
+            return View(list.OrderBy(g => g.Title).OrderBy(g=> g.ESRBID));
+        }
+
         public ActionResult Log(string searchString, int? page)
         {
             int pageSize = 4;

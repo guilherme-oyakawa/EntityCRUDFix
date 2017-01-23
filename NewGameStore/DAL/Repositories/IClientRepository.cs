@@ -9,6 +9,7 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<Client> GetClients();
         IEnumerable<Client> GetActiveClients();
         IEnumerable<Client> GetInactiveClients();
+        IEnumerable<Game> AvailableGames(int age);
         Client GetClientByID(int? ClientID);
         void InsertClient(Client Client);
         void DeleteClient(int ClientID);

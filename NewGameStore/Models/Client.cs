@@ -45,6 +45,16 @@ namespace NewGameStore.Models
             }
         }
 
+        public int Age
+        {
+            get
+            {
+                DateTime today = DateTime.Now;
+                int age = (today - this.BirthDate).Days / 365;
+                return age;
+            }
+        }
+
         public virtual ICollection<Rental> Rentals{ get; set; }
 
         public virtual ICollection<Fee> Fees { get; set; }
