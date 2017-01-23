@@ -125,10 +125,6 @@ namespace NewGameStore.DAL.Repositories
             context.Fees.Add(Fee);
         }
 
-        public IEnumerable<TopClients> TopClients()
-        {
-           return null;
-        }
 
         public void ReturnCopy(int CopyID)
         {

@@ -16,6 +16,9 @@
         <th>
             Rating
         </th>
+        <th>
+            Suitable age
+        </th>
     </tr>
 
     @foreach(var item in Model)
@@ -27,6 +30,9 @@
 
             <td>
                 @Html.DisplayFor(modelItem => item.ESRB.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESRB.Age)
             </td>
         </tr>
     }

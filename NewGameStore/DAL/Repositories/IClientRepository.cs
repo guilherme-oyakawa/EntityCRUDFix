@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NewGameStore.Models;
+using NewGameStore.ViewModels;
 
 namespace NewGameStore.DAL.Repositories
 {
@@ -10,6 +11,7 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<Client> GetActiveClients();
         IEnumerable<Client> GetInactiveClients();
         IEnumerable<Game> AvailableGames(int age);
+
         Client GetClientByID(int? ClientID);
         void InsertClient(Client Client);
         void DeleteClient(int ClientID);
