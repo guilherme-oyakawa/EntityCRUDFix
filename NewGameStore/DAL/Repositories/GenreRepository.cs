@@ -52,6 +52,15 @@ namespace NewGameStore.DAL.Repositories
             return (exists != null) ? true : false;
         }
 
+        public IEnumerable<Game> GamesPerGenre(int id)
+        {
+            var games = from g in context.Games
+                        where g.GenreID == id
+                        select g;
+
+            return games.ToList();
+        }
+
 
         public void Save()
         {

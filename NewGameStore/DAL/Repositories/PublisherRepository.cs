@@ -27,6 +27,14 @@ namespace NewGameStore.DAL.Repositories
             return context.Publishers.ToList();
         }
 
+        public IEnumerable<Game> GamesPerPublisher(int id)
+        {
+            var games = from g in context.Games
+                        where g.PublisherID == id
+                        select g;
+            return games.ToList();
+        }
+
         public Publisher GetPublisherByID(int? PublisherID)
         {
             return context.Publishers.Find(PublisherID);

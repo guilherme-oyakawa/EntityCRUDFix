@@ -57,6 +57,16 @@ namespace NewGameStore.Controllers
             return View(genre);
         }
 
+        //GET: Genres/Games/5
+        public ActionResult Games(int id)
+        {
+            var name = from g in genreRepository.GetGenres()
+                            where g.GenreID == id
+                            select g.Name;
+            ViewBag.Genre = (String)name.First();
+            return View(genreRepository.GamesPerGenre(id).OrderBy(g=> g.Title));
+        }
+
        
         // GET: Genres/Delete/5
         public ActionResult Delete(int? id)

@@ -12,6 +12,8 @@ namespace NewGameStore.DAL.Repositories
     {
         IEnumerable<Genre> GetGenres();
 
+        IEnumerable<Game> GamesPerGenre(int id);
+
         Genre GetGenreByID(int? id);
 
         void InsertGenre(Genre Genre);

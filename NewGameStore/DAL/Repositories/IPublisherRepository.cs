@@ -12,6 +12,8 @@ namespace NewGameStore.DAL.Repositories
     {
         IEnumerable<Publisher> GetPublishers();
 
+        IEnumerable<Game> GamesPerPublisher(int id);
+
         Publisher GetPubByID(int? id);
 
         void InsertPublisher(Publisher Publisher);

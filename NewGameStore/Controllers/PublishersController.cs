@@ -28,9 +28,13 @@ namespace NewGameStore.Controllers
             return View(pubRepository.GetPublishers());
         }
 
-        public ActionResult GamesPerPublisher(string publisher)
+        public ActionResult Games(int id)
         {
-            return View();
+            var name = from p in pubRepository.GetPublishers()
+                       where p.PublisherID == id
+                       select p.Name;
+            ViewBag.Publisher = (String)name.First();
+            return View(pubRepository.GamesPerPublisher(id).OrderBy(g => g.Title));
         }
 
         // GET: Publishers/Create

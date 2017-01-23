@@ -106,11 +106,7 @@ namespace NewGameStore.DAL.Repositories
                         select copy;
             return query.ToList();
         }
-        /*
-        public IEnumerable<Client> GetClients()
-        {
-            return context.Clients.ToList();
-        }*/
+
         public IEnumerable<Client> GetActiveClients()
         {
             var query = from c in context.Clients
@@ -138,5 +134,6 @@ namespace NewGameStore.DAL.Repositories
         {
             context.Database.ExecuteSqlCommand("EXEC ReturnCopy @copy = {0}", CopyID);
         }
+
     }
 }
