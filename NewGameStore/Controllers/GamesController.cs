@@ -128,10 +128,6 @@ namespace NewGameStore.Controllers
                 gameRepository.Save();
                 return RedirectToAction("Index");
             }
-            //ViewBag.ESRBID = new SelectList(gameRepository.GetRatings(), "ESRBID", "Rating");
-            //ViewBag.PublisherID = new SelectList(gameRepository.getPublishers(), "PublisherID", "Name");
-            //ViewBag.GenreID = new SelectList(gameRepository.getGenres(), "GenreID", "Name");
-
             return View(game);
         }
 

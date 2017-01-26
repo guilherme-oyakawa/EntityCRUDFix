@@ -98,5 +98,6 @@ namespace NewGameStore.DAL.Repositories
                         select g;
             return (games.OrderBy(g => g.Title).ToList());
         }
+
     }
 }

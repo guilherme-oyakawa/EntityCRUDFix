@@ -21,6 +21,5 @@ namespace NewGameStore.DAL.Repositories
         IEnumerable<ESRB> GetRatings();
 
         IEnumerable<Game> GetGamesByRating(int rating);
-        
     }
 }
