@@ -16,6 +16,8 @@ namespace NewGameStore.DAL.Repositories
         void DeleteCopy(int CopyID);
         void UpdateCopy(Copy Copy);
         IEnumerable<Game> GetGames();
+
+        IEnumerable<Game> GetCopyGame(int? id);
         void Save();
     }
 }

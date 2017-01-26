@@ -162,8 +162,9 @@ namespace NewGameStore.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ClientID = new SelectList(rentalRepository.GetActiveClients(), "ClientID", "FullName", rental.ClientID);
-            ViewBag.CopyID = new SelectList(rentalRepository.GetCopies(), "CopyID", "Details", rental.CopyID);
+            ViewBag.ClientID = new SelectList(rentalRepository.GetClientByRental(id), "ClientID", "FullName", rental.ClientID);
+            //ViewBag.CopyID = new SelectList(rentalRepository.GetCopies(), "CopyID", "Details", rental.CopyID);
+            ViewBag.CopyID = new SelectList(rentalRepository.GetCopyByRental(id), "CopyID", "Details", rental.CopyID);
             return View(rental);
         }
 

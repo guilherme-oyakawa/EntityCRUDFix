@@ -52,6 +52,14 @@ namespace NewGameStore.DAL.Repositories
             return context.Games.ToList();
         }
 
+        public IEnumerable<Game> GetCopyGame(int? id)
+        {
+            var game = from c in context.Copies
+                       where c.CopyID == id
+                       select c.Game;
+            return game.ToList();
+        }
+
         private bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {

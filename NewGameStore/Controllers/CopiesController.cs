@@ -95,7 +95,7 @@ namespace NewGameStore.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.GameID = new SelectList(copyRepository.GetGames().OrderBy(c =>c.Title), "GameID", "Details", copy.GameID);
+            ViewBag.GameID = new SelectList(copyRepository.GetCopyGame(id), "GameID", "Details", copy.GameID);
             return View(copy);
         }
 
